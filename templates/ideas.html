@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>NP Activity Finder</title>
+</head>
+<body>
+    <h2>National Park Activity Finder</h2>
+<p>This website gives you an activity to do based on something you want to see.<br />
+    For example, you can type in "mountains" and it will find you an activity that
+    would allow you to see mountains at a National Park.
+</p>
+<form action="/" method="get">
+    <label for="key">Please enter something you want to see: </label>
+    <input type="text" id="key" name="key"/>
+    <label for="season">Choose a season</label>
+    <select name="season" id="season">
+        <option value="Spring">Spring</option>
+      <option value="Summer">Summer</option>
+      <option value="Fall">Fall</option>
+      <option value="Winter">Winter</option>
+    </select>
+    <input type="submit" value="Go" name="gobtn"/>
+ </form>
+{% if prompt %}
+<div class='formtitle'>{{prompt}}</div>
+{% elif searchdata %}
+<h3>{{page_title}}</h3>
+<p>Activity: {{activity_title}}</p>
+<p>{{short_des}}</p>
+<p>{{long_des}}</p>
+<img src={{photo_url}} alt={{caption_text}} width="700 px">
+<p>{{caption_text}}</p>
+{% endif %}
+</body>
+</html>
